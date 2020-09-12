@@ -3,4 +3,4 @@ skulltrumpet
 
 # 🎺💀
 
-[doot <sup>doot</sup>](https://skulltrumpet.com/)
+[doot <sup>doot</sup>](https://www.skulltrumpet.com/)
