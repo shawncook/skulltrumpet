@@ -1,4 +1,6 @@
 skulltrumpet
 ============
 
-doot doot
+# 🎺💀
+
+[doot <sup>doot</sup>](https://skulltrumpet.com/)
