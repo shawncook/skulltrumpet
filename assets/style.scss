@@ -1,7 +1,5 @@
 :root {
   --background: #000000;
-  --iconPlay: #7c7c7c;
-  --iconPlayHover: #f2f2f2;
   --mrSkeltal: 600px;
   --text: #ccc;
 }
@@ -50,14 +48,12 @@ span.play {
   img[src*=".png"] + & { opacity: 1; }
 
   &:after {
-    background-color: var(--iconPlay);
+    background: url('./play.svg') no-repeat center;
     bottom: 0;
     content: '';
     display: block;
-    fill: var(--iconPlay);
     left: 0;
     margin: 0 auto;
-    mask: url('./play.svg') no-repeat center;
     max-width: 200px;
     opacity: 0.4;
     position: absolute;
@@ -68,7 +64,6 @@ span.play {
 
   &:hover:after,
   &:focus-within:after {
-    background-color: var(--iconPlayHover);
     opacity: 1;
   }
 }
