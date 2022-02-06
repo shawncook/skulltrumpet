@@ -1,0 +1,29 @@
+{
+  "name": "skulltrumpet",
+  "version": "1.0.0",
+  "description": "doot doot",
+  "main": "script.js",
+  "scripts": {
+    "deploy": "grunt uglify && grunt sass && grunt connect",
+    "serve": "grunt connect",
+    "watch": "grunt watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shawncook/skulltrumpet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shawncook/skulltrumpet/issues"
+  },
+  "homepage": "https://github.com/shawncook/skulltrumpet#readme",
+  "devDependencies": {
+    "grunt": "^1.4.1",
+    "grunt-contrib-connect": "^3.0.0",
+    "grunt-contrib-sass": "^2.0.0",
+    "grunt-contrib-uglify": "^5.0.1",
+    "grunt-contrib-watch": "^1.1.0"
+  }
+}
