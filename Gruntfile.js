@@ -4,7 +4,7 @@ module.exports = function (grunt) {
       server: {
         options: {
           base: 'public',
-          keepalive: false,
+          keepalive: true,
         }
       }
     },
