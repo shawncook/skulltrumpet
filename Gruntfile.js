@@ -4,14 +4,14 @@ module.exports = function (grunt) {
       server: {
         options: {
           base: 'public',
-          keepalive: true,
+          keepalive: true
         }
       }
     },
     sass: {
       dist: {
         options: {
-          style: 'compressed',
+          style: 'compressed'
         },
         files: {
           'public/style.css': 'assets/style.scss'
@@ -20,7 +20,7 @@ module.exports = function (grunt) {
     },
     uglify: {
       public: { files: {
-        'public/script.min.js': 'assets/script.js',
+        'public/script.min.js': 'assets/script.js'
       } }
     },
     watch: {
@@ -33,9 +33,9 @@ module.exports = function (grunt) {
         tasks: ['uglify']
       }
     }
-  });
-  grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-};
+  })
+  grunt.loadNpmTasks('grunt-contrib-connect')
+  grunt.loadNpmTasks('grunt-contrib-sass')
+  grunt.loadNpmTasks('grunt-contrib-uglify')
+  grunt.loadNpmTasks('grunt-contrib-watch')
+}
