@@ -13,6 +13,7 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   height: 100vh;
+  overscroll-behavior: none;
 }
 
 @mixin centerMe {
@@ -22,11 +23,15 @@ body {
   justify-self: center;
 }
 
-button {
-  @include centerMe;
+@mixin resetButton {
   background: transparent;
   border: 0;
   cursor: pointer;
+}
+
+button#doot {
+  @include centerMe;
+  @include resetButton;
   display: block;
   max-width: var(--mrSkeltal);
   min-width: 80vw;
@@ -96,5 +101,41 @@ span.play {
     position: absolute;
     bottom: 100%;
     opacity: 1;
+  }
+}
+
+#tipjar {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  position: fixed;
+  right: 0;
+  width: 450px;
+  transform: translateX(450px);
+  transition: transform 150ms ease-in-out;
+
+  &[aria-expanded=true] {
+    transform: translateX(0);
+  }
+
+  button {
+    @include resetButton;
+    color: var(--text);
+    font-weight: 300;
+    padding: 10px 15px;
+    position: absolute;
+    right: 100%;
+    width: auto;
+    white-space: nowrap;
+
+    span {
+      pointer-events: none;
+    }
+  }
+
+  iframe {
+    height: 100%;
+    widtH: 100%;
   }
 }

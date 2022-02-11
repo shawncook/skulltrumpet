@@ -4,8 +4,10 @@
 
   options = {
     doot: document.querySelector('audio'),
-    dooter: document.querySelector('#doot'),
-    dootEl: document.querySelector('.doots')
+    dooter: document.getElementById('doot'),
+    dootEl: document.querySelector('.doots'),
+    toggle: document.querySelector('.toggle'),
+    tipjar: document.getElementById('tipjar'),
   }
 
   playAudio = () => {
@@ -79,16 +81,32 @@
     } else el.removeAttribute('data-tooltip')
   }
 
+  togglePane = (evt, close) => {
+    evt.preventDefault
+    const target = options.tipjar
+    const expanded = target.getAttribute('aria-expanded')
+    let isExpanded = expanded === 'true'
+    if (close && close !== isExpanded) return
+    if (close) isExpanded = true
+    gtag('event', 'click', {
+      'event_category': 'flyout',
+      'event_label': isExpanded ? 'close' : 'open'
+    })
+    target.setAttribute('aria-expanded', !isExpanded)
+  }
+
   handleKeyup = (evt) => {
     if (evt.keyCode == 32) { handleDoot(evt) }
+    else if (evt.keyCode == 27) { togglePane(evt, true) }
   }
 
   bind = () => {
-    document.body.onkeyup = (evt) => handleKeyup
+    document.body.onkeyup = (evt) => handleKeyup(evt)
     options.dooter.addEventListener('click', handleDoot)
+    options.toggle.addEventListener('click', togglePane)
   }
 
-  bind();
-  setDoots();
+  bind()
+  setDoots()
 
-})();
+})()
