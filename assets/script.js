@@ -35,7 +35,10 @@
       cooldown = true
       const target = evt.currentTarget
       if (target) target.disabled = true
-      ga('send', 'event', 'button', 'click', 'tumpet')
+      gtag('event', 'click', {
+        'event_category': 'button',
+        'event_label': 'tumpet'
+      })
       playGif()
       playAudio()
       setTimeout(() => {
@@ -63,7 +66,13 @@
     const el = options.dootEl
     if (0 > theVal) el.setAttribute('data-tooltip', 'umm')
     else if (isNice) {
-      el.setAttribute('data-tooltip', 'nice')
+      const msg = theVal === 420 ? 'blaze it' : 'nice'
+      el.setAttribute('data-tooltip', msg)
+      gtag('event', 'click', {
+        'event_category': 'button',
+        'event_label': 'doots',
+        'value': theVal
+      })
       setTimeout(() => {
         el.removeAttribute('data-tooltip')
       }, 2250)
