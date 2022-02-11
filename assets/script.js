@@ -10,6 +10,7 @@
     tipjar: document.getElementById('tipjar'),
   }
 
+  /*
   flyoutToggle = (data) => {
     const expanded = data.toggle ?
       data.toggle.getAttribute('aria-expanded') : 'false'
@@ -28,6 +29,7 @@
     const isExpanded = expanded === 'true'
     if (options.toggle && isExpanded) flyoutToggle(options)
   }
+  */
 
   playAudio = () => {
     options.doot.pause()
@@ -102,13 +104,13 @@
 
   handleKeyup = (evt, data) => {
     if (evt.keyCode == 32) { handleDoot(evt) }
-    if (evt.keyCode == 27) { flyoutClose(data) }
+    // if (evt.keyCode == 27) { flyoutClose(data) }
   }
 
   bind = () => {
     document.body.onkeyup = (evt) => handleKeyup(evt, options)
     options.dooter.addEventListener('click', handleDoot)
-    options.toggle.addEventListener('click', (evt) => flyoutToggle(options))
+    // options.toggle.addEventListener('click', (evt) => flyoutToggle(options))
   }
 
   bind()
