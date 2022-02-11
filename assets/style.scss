@@ -115,7 +115,7 @@ span.play {
   transform: translateX(450px);
   transition: transform 150ms ease-in-out;
 
-  &[aria-expanded=true] {
+  &.open {
     transform: translateX(0);
   }
 

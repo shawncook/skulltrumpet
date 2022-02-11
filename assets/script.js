@@ -10,6 +10,25 @@
     tipjar: document.getElementById('tipjar'),
   }
 
+  flyoutToggle = (data) => {
+    const expanded = data.toggle ?
+      data.toggle.getAttribute('aria-expanded') : 'false'
+    const isExpanded = expanded === 'true'
+    gtag('event', 'click', {
+      'event_category': 'flyout',
+      'event_label': isExpanded ? 'close' : 'open'
+    })
+    data.tipjar.classList.toggle('open')
+    data.toggle.setAttribute('aria-expanded', !isExpanded)
+  }
+
+  flyoutClose = (data) => {
+    const expanded = data.toggle ?
+      data.toggle.getAttribute('aria-expanded') : 'false'
+    const isExpanded = expanded === 'true'
+    if (options.toggle && isExpanded) flyoutToggle(options)
+  }
+
   playAudio = () => {
     options.doot.pause()
     options.doot.currentTime = 0
@@ -81,29 +100,15 @@
     } else el.removeAttribute('data-tooltip')
   }
 
-  togglePane = (evt, close) => {
-    evt.preventDefault
-    const target = options.tipjar
-    const expanded = target.getAttribute('aria-expanded')
-    let isExpanded = expanded === 'true'
-    if (close && close !== isExpanded) return
-    if (close) isExpanded = true
-    gtag('event', 'click', {
-      'event_category': 'flyout',
-      'event_label': isExpanded ? 'close' : 'open'
-    })
-    target.setAttribute('aria-expanded', !isExpanded)
-  }
-
-  handleKeyup = (evt) => {
+  handleKeyup = (evt, data) => {
     if (evt.keyCode == 32) { handleDoot(evt) }
-    else if (evt.keyCode == 27) { togglePane(evt, true) }
+    if (evt.keyCode == 27) { flyoutClose(data) }
   }
 
   bind = () => {
-    document.body.onkeyup = (evt) => handleKeyup(evt)
+    document.body.onkeyup = (evt) => handleKeyup(evt, options)
     options.dooter.addEventListener('click', handleDoot)
-    options.toggle.addEventListener('click', togglePane)
+    options.toggle.addEventListener('click', (evt) => flyoutToggle(options))
   }
 
   bind()
