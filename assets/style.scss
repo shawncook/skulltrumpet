@@ -37,12 +37,11 @@ button#doot {
   max-width: $mrSkeltal;
   min-width: 80vw;
 
+  .open + & { z-index: -1; }
+
   @media (min-width: 768px) { min-width: $mrSkeltal; }
 
-  img {
-    display: block;
-    width: 100%;
-  }
+  img { display: block; width: 100%; }
 }
 
 span.play {
@@ -111,6 +110,7 @@ span.play {
   max-width: 100vw;
   position: fixed;
   right: 0;
+  width: 0;
 
   iframe {
     height: 100%;
@@ -118,6 +118,11 @@ span.play {
     opacity: 0;
     transform: translateX(100%);
     transition: transform 150ms ease-in-out, opacity 150ms ease-in-out;
+    z-index: 3;
+  }
+
+  &.open {
+    width: auto;
   }
 
   &.open iframe {
@@ -139,7 +144,7 @@ span.play {
   top: 0.5em;
   width: auto;
   white-space: nowrap;
-  z-index: 1;
+  z-index: 5;
 
   &[aria-expanded=true] { right: 0; }
 
