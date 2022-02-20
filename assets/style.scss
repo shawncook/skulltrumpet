@@ -129,7 +129,7 @@ span.play {
 
   &.open &__inner { opacity: 1; transform: translateX(0); }
 
-  iframe { border: none; padding: 4px; }
+  iframe { border: none; }
 }
 
 .toggle {
