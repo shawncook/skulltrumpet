@@ -106,9 +106,12 @@
   }
 
   bind = () => {
-    document.body.onkeyup = (evt) => handleKeyup(evt, options)
     options.dooter.addEventListener('click', handleDoot)
     options.toggle.addEventListener('click', (evt) => flyoutToggle(options))
+    document.body.onkeyup = (evt) => handleKeyup(evt, options)
+    document.addEventListener('click', (evt) => {
+      if (! options.tipjar.contains(evt.target)) flyoutClose(options)
+    })
   }
 
   bind()

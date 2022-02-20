@@ -3,7 +3,7 @@ $mrSkeltal: 600px;
 $colorText: #ccc;
 $colorIcon: #fff;
 $iconSize: 12px;
-$iconThickness: 2px;
+$iconThickness: 1px;
 
 body {
   background: $background;
@@ -37,9 +37,7 @@ button#doot {
   max-width: $mrSkeltal;
   min-width: 80vw;
 
-  @media (min-width: 768px) {
-    min-width: $mrSkeltal;
-  }
+  @media (min-width: 768px) { min-width: $mrSkeltal; }
 
   img {
     display: block;
@@ -70,10 +68,10 @@ span.play {
     transition: opacity 200ms;
   }
 
-  &:hover:after,
-  &:focus-within:after {
-    opacity: 1;
-  }
+  button:active &,
+  button:focus &,
+  button:hover &,
+  button:focus-within & { &:after { opacity: 1; } }
 }
 
 @keyframes flash {
@@ -113,47 +111,39 @@ span.play {
   max-width: 100vw;
   position: fixed;
   right: 0;
-  width: 450px;
-  transform: translateX(450px);
-  transition: transform 150ms ease-in-out;
-
-  &.open {
-    transform: translateX(0);
-
-    iframe {
-      opacity: 1;
-    }
-  }
 
   iframe {
     height: 100%;
+    max-width: 100vw;
     opacity: 0;
-    transition: opacity 150ms ease-in-out;
-    width: 100%;
+    transform: translateX(100%);
+    transition: transform 150ms ease-in-out, opacity 150ms ease-in-out;
+  }
+
+  &.open iframe {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
 .toggle {
   @include resetButton;
   align-items: center;
+  box-sizing: border-box;
   color: $colorText;
   display: flex;
   font-weight: 300;
-  padding: 10px 15px;
+  padding: 1em;
   position: absolute;
-  right: 100%;
+  right: 0.5em;
   top: 0.5em;
   width: auto;
   white-space: nowrap;
+  z-index: 1;
 
-  &[aria-expanded=true] {
-    right: 0;
-    top: 1em;
-  }
+  &[aria-expanded=true] { right: 0; }
 
-  span {
-    pointer-events: none;
-  }
+  span { pointer-events: none; }
 }
 
 .toggle__label {
@@ -178,11 +168,13 @@ span.play {
     width: $iconSize * 2.5;
   }
 
+  &:before { transform: rotate(0); }
+
+  &:after { transform: rotate(90deg); }
+
   &,
   &:before,
-  &:after {
-    transform-origin: center;
-  }
+  &:after { transform-origin: center; }
 
   &:before,
   &:after {
@@ -197,8 +189,4 @@ span.play {
 
     .toggle[aria-expanded=true] & { background: $background; }
   }
-
-  &:before { transform: rotate(0); }
-
-  &:after { transform: rotate(90deg); }
 }
