@@ -1,12 +1,13 @@
-:root {
-  --background: #000000;
-  --mrSkeltal: 600px;
-  --text: #ccc;
-}
+$background: #000000;
+$mrSkeltal: 600px;
+$colorText: #ccc;
+$colorIcon: #fff;
+$iconSize: 12px;
+$iconThickness: 2px;
 
 body {
-  background: var(--background);
-  color: var(--text);
+  background: $background;
+  color: $colorText;
   margin: 0;
   padding: 0;
   display: grid;
@@ -33,11 +34,11 @@ button#doot {
   @include centerMe;
   @include resetButton;
   display: block;
-  max-width: var(--mrSkeltal);
+  max-width: $mrSkeltal;
   min-width: 80vw;
 
   @media (min-width: 768px) {
-    min-width: var(--mrSkeltal);
+    min-width: $mrSkeltal;
   }
 
   img {
@@ -109,6 +110,7 @@ span.play {
   display: flex;
   flex-direction: row;
   height: 100vh;
+  max-width: 100vw;
   position: fixed;
   right: 0;
   width: 450px;
@@ -117,26 +119,86 @@ span.play {
 
   &.open {
     transform: translateX(0);
-  }
 
-  button {
-    @include resetButton;
-    color: var(--text);
-    font-weight: 300;
-    padding: 10px 15px;
-    position: absolute;
-    right: 100%;
-    width: auto;
-    white-space: nowrap;
-
-    span {
-      pointer-events: none;
+    iframe {
+      opacity: 1;
     }
   }
 
   iframe {
     height: 100%;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
     width: 100%;
   }
 }
 
+.toggle {
+  @include resetButton;
+  align-items: center;
+  color: $colorText;
+  display: flex;
+  font-weight: 300;
+  padding: 10px 15px;
+  position: absolute;
+  right: 100%;
+  top: 0.5em;
+  width: auto;
+  white-space: nowrap;
+
+  &[aria-expanded=true] {
+    right: 0;
+    top: 1em;
+  }
+
+  span {
+    pointer-events: none;
+  }
+}
+
+.toggle__label {
+  margin-right: 0.5em;
+
+  [aria-expanded=true] & {
+    display: none;
+  }
+}
+
+.toggle__arrow {
+  display: block;
+  height: $iconSize;
+  position: relative;
+  transform: rotate(0);
+  transform-origin: center;
+  width: $iconSize;
+
+  [aria-expanded=true] & {
+    height: $iconSize 2.5;
+    transform: rotate(45deg);
+    width: $iconSize * 2.5;
+  }
+
+  &,
+  &:before,
+  &:after {
+    transform-origin: center;
+  }
+
+  &:before,
+  &:after {
+    background: $colorIcon;
+    border-radius: $iconThickness;
+    content: '';
+    height: $iconThickness;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: calc(calc($iconSize - $iconThickness) / 2);
+
+    .toggle[aria-expanded=true] & { background: $background; }
+  }
+
+  &:before { transform: rotate(0); }
+
+  &:after { transform: rotate(90deg); }
+}
