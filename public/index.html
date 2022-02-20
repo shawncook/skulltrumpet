@@ -11,9 +11,11 @@
     <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-47259602-1');</script>
   </head>
   <body>
-    <div id="tipjar">
-      <button class="toggle" aria-expanded="false" aria-haspopup="true" aria-controls="tipjar"><span class="toggle__label">Tips</span><span class="toggle__arrow"></span></button>
-      <iframe id="kofiframe" src="https://ko-fi.com/skulltrumpet/?hidefeed=true&widget=true&embed=true&preview=true" style="border:none;width:100%;padding:4px;background:#f9f9f9;" height="100%" title="skulltrumpet"></iframe>
+    <div id="tipjar" class="tipjar">
+      <button class="tipjar__toggle toggle" aria-expanded="false" aria-haspopup="true" aria-controls="tipjar">
+        <span class="toggle__label">Tips</span><span class="toggle__arrow"></span>
+      </button>
+      <div class="tipjar__inner"></div>
     </div>
     <button id="doot"><img src="doot.png" alt="tumpet"><span class="play" aria-hidden="true"></button>
     <div class="doots"></div>

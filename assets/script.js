@@ -10,6 +10,19 @@
     tipjar: document.getElementById('tipjar'),
   }
 
+  appendTipjar = (data) => {
+    const iframe = document.createElement('iframe')
+    Object.assign(iframe, {
+      defer: true,
+      height: '100%',
+      id: 'kofiframe',
+      loading: 'lazy',
+      src: 'https://ko-fi.com/skulltrumpet/?hidefeed=true&widget=true&embed=true&preview=true',
+      title: 'skulltrumpet',
+    })
+    data.tipjar.querySelector('.tipjar__inner').appendChild(iframe)
+  }
+
   flyoutToggle = (data) => {
     const expanded = data.toggle ?
       data.toggle.getAttribute('aria-expanded') : 'false'
@@ -18,6 +31,9 @@
       'event_category': 'flyout',
       'event_label': isExpanded ? 'close' : 'open'
     })
+    if (! isExpanded && ! data.tipjar.querySelector('iframe')) {
+      appendTipjar(data)
+    }
     data.tipjar.classList.toggle('open')
     data.toggle.setAttribute('aria-expanded', !isExpanded)
   }
