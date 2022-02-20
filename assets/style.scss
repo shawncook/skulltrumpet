@@ -1,9 +1,5 @@
-$colorBackground: #000000;
-$colorIcon: #fff;
-$colorText: #ccc;
-$dootWidth: 600px;
-$iconSize: 12px;
-$iconThickness: 1px;
+@import './variables';
+@import './mixins';
 
 body {
   background: $colorBackground;
@@ -39,7 +35,7 @@ button#doot {
 
   @media (min-width: 768px) { min-width: $dootWidth; }
 
-  .open + & { z-index: -1; }
+  .open ~ & { z-index: 0; }
 
   img { display: block; width: 100%; }
 }
@@ -111,6 +107,7 @@ span.play {
   position: fixed;
   right: 0;
   width: 0;
+  z-index: 3;
 
   &.open { width: auto; }
 
@@ -124,7 +121,7 @@ span.play {
     transform: translateX(100%);
     transition: all 150ms ease-in-out;
     width: 300px;
-    z-index: 3;
+    z-index: 1;
   }
 
   &.open &__inner { opacity: 1; transform: translateX(0); }
@@ -145,7 +142,7 @@ span.play {
   top: 0.5em;
   width: auto;
   white-space: nowrap;
-  z-index: 5;
+  z-index: 2;
 
   &[aria-expanded=true] { right: 0; }
 
@@ -192,4 +189,8 @@ span.play {
 
     .toggle[aria-expanded=true] & { background: $colorBackground; }
   }
+}
+
+.toggle__loader {
+  @include spinner;
 }

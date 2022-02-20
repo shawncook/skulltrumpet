@@ -1,0 +1,32 @@
+@mixin spinner {
+
+  &,
+  &:after {
+    border-radius: 50%;
+    width: $iconSize;
+    height: $iconSize;
+  }
+
+  & {
+    $width: 1px;
+    animation: spinner 1.1s infinite linear;
+    border-bottom: $width solid rgba(255, 255, 255, 0.2);
+    border-left: $width solid #ffffff;
+    border-right: $width solid rgba(255, 255, 255, 0.2);
+    border-top: $width solid rgba(255, 255, 255, 0.2);
+    content: '';
+    display: block;
+    margin: 0;
+    position: relative;
+    transform: translateZ(0);
+  }
+
+  @-webkit-keyframes spinner {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  @keyframes spinner {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+}

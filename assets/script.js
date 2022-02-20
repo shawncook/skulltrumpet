@@ -10,8 +10,10 @@
     tipjar: document.getElementById('tipjar'),
   }
 
-  appendTipjar = (data) => {
+  appendTipjar = (data, isExpanded) => {
     const iframe = document.createElement('iframe')
+    data.tipjar.querySelector('.toggle__arrow').classList
+      .replace('toggle__arrow', 'toggle__loader')
     Object.assign(iframe, {
       defer: true,
       height: '100%',
@@ -19,6 +21,16 @@
       loading: 'lazy',
       src: 'https://ko-fi.com/skulltrumpet/?hidefeed=true&widget=true&embed=true&preview=true',
       title: 'skulltrumpet',
+      onload: () => {
+        data.tipjar.classList.toggle('open')
+        data.toggle.setAttribute('aria-expanded', !isExpanded)
+        data.tipjar.querySelector('.toggle__loader').classList
+          .replace('toggle__loader', 'toggle__arrow')
+      },
+      onerror: () => {
+        data.tipjar.querySelector('.toggle__loader').classList
+          .replace('toggle__loader', 'toggle__arrow')
+      }
     })
     data.tipjar.querySelector('.tipjar__inner').appendChild(iframe)
   }
@@ -32,10 +44,11 @@
       'event_label': isExpanded ? 'close' : 'open'
     })
     if (! isExpanded && ! data.tipjar.querySelector('iframe')) {
-      appendTipjar(data)
+      appendTipjar(data, isExpanded)
+    } else {
+      data.tipjar.classList.toggle('open')
+      data.toggle.setAttribute('aria-expanded', !isExpanded)
     }
-    data.tipjar.classList.toggle('open')
-    data.toggle.setAttribute('aria-expanded', !isExpanded)
   }
 
   flyoutClose = (data) => {
