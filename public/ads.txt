@@ -1,0 +1,33 @@
+##############################################################################
+#                                                                            #
+#      SSSSSSSSSSSSSSS   HHHHHHH     HHHHHHH  EEEEEEEEEEEEEEEEEEEE MMMMMMM   #
+#    SS:::::::::::::::S  H:::::H     H:::::H  E::::::::::::::::::E     M     #
+#   S:::::SSSSSS::::::S  H:::::H     H:::::H  E::::::::::::::::::E MMMMMMM   #
+#   S:::::S     SSSSSSS  H:::::H     H:::::H  E:::::EEEEEEEEEEEEEE           #
+#   S:::::S              H:::::H     H:::::H  E:::::E              EEEEEEE   #
+#   S:::::S              H:::::H     H:::::H  E:::::E              E  E  E   #
+#    S::::SSSS           H::::::HHHHH::::::H  E:::::EEEEEEEEEEEEEE           #
+#     SS::::::SSSSS      H:::::::::::::::::H  E::::::::::::::::::E DDDDDDD   #
+#       SSS::::::::SS    H:::::::::::::::::H  E::::::::::::::::::E D     D   #
+#          SSSSSS::::S   H::::::HHHHH::::::H  E:::::EEEEEEEEEEEEEE  DDDDD    #
+#               S:::::S  H:::::H     H:::::H  E:::::E                        #
+#               S:::::S  H:::::H     H:::::H  E:::::E              IIIIIII   #
+#   SSSSSSS     S:::::S  H:::::H     H:::::H  E:::::EEEEEEEEEEEEEE           #
+#   S::::::SSSSSS:::::S  H:::::H     H:::::H  E::::::::::::::::::E AAAAAA    #
+#   S:::::::::::::::SS   H:::::H     H:::::H  E::::::::::::::::::E    A  A   #
+#    SSSSSSSSSSSSSSS     HHHHHHH     HHHHHHH  EEEEEEEEEEEEEEEEEEEE AAAAAA    #
+#                                                                            #
+#   This site is a member of the SHE Media Collective.                       #
+#   For information on how to monetize your site with high quality media,    #
+#   branded content, and more, visit https://www.shemedia.com.               #
+#                                                                            #
+#   If you are an advertiser looking to expand your brand's reach on the     #
+#   #1 women's lifestyle network, send us your information by visiting       #
+#   https://www.shemedia.com/about.                                          #
+#                                                                            #
+##############################################################################
+
+shemedia.com, 1217081, DIRECT, 8dd52f825890bb44
+pmc.com, 1217081, DIRECT, 8dd52f825890bb44
+
+# 202209201801-2133443-523
