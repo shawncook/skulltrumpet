@@ -1,0 +1,4 @@
+/* GIF CREATOR */
+Author: Cathy Jarboe
+Role: GIF Creator
+Source: https://web.archive.org/web/20110923171910/http://www.cjarboe.com/
